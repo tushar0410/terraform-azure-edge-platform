@@ -1,0 +1,6 @@
+# Copy to backend.hcl after the initial local-state apply. Do not commit backend.hcl.
+resource_group_name  = "rg-edge-tfstate"
+storage_account_name = "replacewithgloballyuniquename"
+container_name       = "tfstate"
+key                  = "bootstrap.tfstate"
+use_azuread_auth     = true

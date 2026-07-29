@@ -1,0 +1,20 @@
+resource_group_name  = "rg-edge-tfstate"
+location             = "eastus2"
+storage_account_name = "stedgetfstate01"
+
+# Include the signed-in bootstrap deployer and future CI identities. These are
+# Entra ID object IDs, not application/client IDs.
+state_access_principal_ids = [
+  "00000000-0000-0000-0000-000000000000",
+]
+
+# Restrict data-plane access to trusted deployer or self-hosted-runner egress.
+allowed_ip_ranges = [
+  "203.0.113.10/32",
+]
+
+tags = {
+  environment = "platform"
+  owner       = "platform-engineering"
+  cost_center = "shared-services"
+}
